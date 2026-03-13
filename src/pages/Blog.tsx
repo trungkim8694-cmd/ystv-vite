@@ -127,7 +127,7 @@ export default function Blog() {
       <section className="relative py-20 bg-slate-900 text-white overflow-hidden">
         <div className="absolute inset-0 opacity-20">
           <img
-            src="/public/banner-set-qua-tang-ystv.webp"
+            src="/banner-set-qua-tang-ystv.webp"
             alt="Background"
             className="w-full h-full object-cover"
           />

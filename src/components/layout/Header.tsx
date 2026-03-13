@@ -57,7 +57,7 @@ export function Header() {
         <Link to={`/${currentLang}`} className="flex items-center gap-2">
           <div className="w-12 h-12 relative flex items-center justify-center">
             <img
-              src="/public/logo-yen-sao-thinh-vuong.png"
+              src="/logo-yen-sao-thinh-vuong.png"
               alt="Logo Yến Sào Thịnh Vượng"
               className="w-full h-full object-contain"
             />

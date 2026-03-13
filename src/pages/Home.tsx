@@ -167,7 +167,7 @@ export function Home() {
       <section className="relative h-[85vh] flex items-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
-            src="/public/banner-bat-yen-chung-ystv.webp"
+            src="/banner-bat-yen-chung-ystv.webp"
             className="w-full h-full object-cover brightness-50"
             alt="Yến Sào Thịnh Vượng - Premium Bird's Nest"
             referrerPolicy="no-referrer"

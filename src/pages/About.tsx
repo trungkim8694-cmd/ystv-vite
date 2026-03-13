@@ -30,7 +30,7 @@ export const About: React.FC = () => {
       <section className="relative h-[60vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
-            src="/public/banner-nha-xuong-ystv.webp"
+            src="/banner-nha-xuong-ystv.webp"
             alt="About Hero"
             className="w-full h-full object-cover opacity-60"
             referrerPolicy="no-referrer"
@@ -79,7 +79,7 @@ export const About: React.FC = () => {
             className="relative"
           >
             <img
-              src="/public/yen-sao-thinh-vuong-nha-yen.webp"
+              src="/yen-sao-thinh-vuong-nha-yen.webp"
               alt="Our Story"
               className="rounded-2xl shadow-2xl"
               referrerPolicy="no-referrer"

@@ -55,7 +55,7 @@ export default function Contact() {
       <section className="relative h-[40vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
-            src="/public/banner-nha-xuong-ystv.webp"
+            src="/banner-nha-xuong-ystv.webp"
             alt="Contact Hero"
             className="w-full h-full object-cover opacity-80"
             referrerPolicy="no-referrer"
