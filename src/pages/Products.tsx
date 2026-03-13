@@ -43,7 +43,11 @@ export function Products() {
     async function fetchProducts() {
       try {
         setLoading(true);
-        let query = supabase.from("products").select("*").eq("is_active", true);
+        let query = supabase
+          .from("products")
+          .select("*")
+          .eq("is_active", true)
+          .order("category", { ascending: true }); // Sắp xếp theo tên danh mục (A-Z)
 
         if (selectedCategory !== "All") {
           query = query.eq("category", selectedCategory);
