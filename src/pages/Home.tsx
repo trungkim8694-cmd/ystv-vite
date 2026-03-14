@@ -311,7 +311,9 @@ export function Home() {
                   <h3 className="text-xl font-serif font-bold mb-2 group-hover:text-maroon transition-colors">
                     {currentLang === "vi" ? product.name_vi : product.name_zh}
                   </h3>
-                  <p className="text-gold font-bold">{product.price}</p>
+                  <p className="text-gold font-bold">
+                    {(product.price || 0).toLocaleString("vi-VN") + "đ"}
+                  </p>
                 </motion.div>
               ))
             )}
