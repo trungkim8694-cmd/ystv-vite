@@ -113,18 +113,28 @@ export function Products() {
   return (
     <div className="pt-24 pb-20">
       {/* Header Section */}
-      <section className="bg-slate-900 py-20 px-6 text-center">
+      <section
+        className="bg-slate-900 py-20 px-6 text-center relative overflow-hidden bg-cover bg-center"
+        style={{
+          backgroundImage: "url('/baner-set-qua-thinh-vuong.webp')", // Thay đổi đường dẫn ảnh của bạn tại đây
+        }}
+      >
+        {/* Thêm một lớp overlay đen mờ để làm nổi bật văn bản */}
+        <div className="absolute inset-0 bg-black/60 z-0"></div>
+
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="max-w-4xl mx-auto"
+          className="max-w-4xl mx-auto relative z-10" // Thêm z-10 để nội dung nằm trên overlay
         >
           <h1 className="text-4xl md:text-5xl font-serif font-bold text-gold mb-6 uppercase tracking-wider">
             {t("nav.products")}
           </h1>
-          <div className="w-24 h-1 bg-gold mx-auto mb-8"></div>
-          <p className="text-slate-300 text-lg font-light leading-relaxed">
+
+          <div className="w-24 h-1 bg-gold mx-auto mb-8 relative z-10"></div>
+
+          <p className="text-white text-lg font-light leading-relaxed relative z-10">
             {currentLang === "vi"
               ? "Khám phá danh mục sản phẩm yến sào thượng hạng, được tuyển chọn khắt khe từ hệ thống nhà yến trải dài khắp Việt Nam."
               : "探索顶级燕窝系列，从遍布越南的燕屋系统中严格挑选。"}

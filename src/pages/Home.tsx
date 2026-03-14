@@ -164,7 +164,7 @@ export function Home() {
       />
 
       {/* Hero Section */}
-      <section className="relative h-[85vh] flex items-center overflow-hidden">
+      <section className="relative h-[60vh] flex items-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
             src="/banner-bat-yen-chung-ystv.webp"
@@ -217,11 +217,10 @@ export function Home() {
                 <Star size={32} />
               </div>
               <h3 className="text-xl font-serif font-bold mb-4">
-                Chất Lượng Thượng Hạng
+                {t("posts.features.qualityTitle")}
               </h3>
               <p className="text-slate-500 font-light">
-                Tuyển chọn từ những tổ yến già nhất, hàm lượng dinh dưỡng cao
-                nhất.
+                {t("posts.features.qualityDesc")}
               </p>
             </div>
             <div className="text-center">
@@ -229,10 +228,10 @@ export function Home() {
                 <ShieldCheck size={32} />
               </div>
               <h3 className="text-xl font-serif font-bold mb-4">
-                Kiểm Định Nghiêm Ngặt
+                {t("posts.features.inspectionTitle")}
               </h3>
               <p className="text-slate-500 font-light">
-                Đạt tiêu chuẩn an toàn vệ sinh thực phẩm.
+                {t("posts.features.inspectionDesc")}
               </p>
             </div>
             <div className="text-center">
@@ -240,11 +239,10 @@ export function Home() {
                 <Award size={32} />
               </div>
               <h3 className="text-xl font-serif font-bold mb-4">
-                Thương Hiệu Uy Tín
+                {t("posts.features.brandTitle")}
               </h3>
               <p className="text-slate-500 font-light">
-                Hơn 10 năm kinh nghiệm xuất khẩu sang thị trường Trung Quốc và
-                quốc tế.
+                {t("posts.features.brandDesc")}
               </p>
             </div>
           </div>
@@ -393,17 +391,16 @@ export function Home() {
       <section className="py-24 luxury-gradient text-white">
         <div className="max-w-7xl mx-auto px-6 text-center">
           <h2 className="text-4xl md:text-6xl font-serif mb-8">
-            Hợp Tác Kinh Doanh B2B
+            {t("posts.b2bHome.title")}
           </h2>
           <p className="text-xl text-white/70 font-light mb-12 max-w-2xl mx-auto">
-            Chúng tôi cung cấp giải pháp cung ứng yến sào số lượng lớn cho các
-            đối tác nhà hàng, khách sạn và đại lý tại Việt Nam & Trung Quốc.
+            {t("posts.b2bHome.subtitle")}
           </p>
           <Link
             to={`/${currentLang}/contact`}
             className="px-12 py-5 bg-gold text-maroon font-black rounded-sm hover:bg-gold-light transition-all uppercase tracking-widest shadow-2xl inline-block"
           >
-            Nhận Báo Giá Đại Lý
+            {t("posts.b2bHome.cta")}
           </Link>
         </div>
       </section>
