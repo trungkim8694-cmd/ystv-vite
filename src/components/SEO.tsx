@@ -8,7 +8,7 @@ interface SEOProps {
 }
 
 export function SEO({ title, description, schema, image }: SEOProps) {
-  const siteUrl = "https://yensaothinhvuong.com"; // Thay bằng domain thực tế của bạn
+  const siteUrl = "https://www.yensaothinhvuong.com/vi"; // Thay bằng domain thực tế của bạn
   const defaultImage = `${siteUrl}/baner-set-qua-thinh-vuong.webp`;
   const seoImage = image ? `${siteUrl}${image}` : defaultImage;
 
