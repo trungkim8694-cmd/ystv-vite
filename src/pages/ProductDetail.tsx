@@ -16,6 +16,9 @@ import { supabase } from "../lib/supabase";
 import { generateSlug } from "../lib/utils";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
+// Thêm vào phần import đầu file
+import { SEO } from "../components/SEO";
+import { generateProductSchema } from "../utils/schemaHelper";
 
 interface Product {
   id: string;
@@ -89,6 +92,7 @@ export function ProductDetail() {
               zh: data.description_zh || "",
             },
             price: (data.price || 0).toLocaleString("vi-VN") + "đ",
+            rawPrice: data.price || 0, // THÊM DÒNG NÀY để dùng cho Schema
             image: data.image_url || "",
             category: { vi: data.category || "", zh: data.category || "" },
             weight: { vi: data.weight_vi || "", zh: data.weight_zh || "" },
@@ -173,6 +177,22 @@ export function ProductDetail() {
 
   return (
     <div className="pt-24 pb-20">
+      {/* TÍCH HỢP SEO & SCHEMA TẠI ĐÂY */}
+      <SEO
+        title={product.name[currentLang]}
+        description={product.description[currentLang].substring(0, 160)} // Lấy 160 ký tự đầu làm mô tả
+        image={product.image}
+        schema={generateProductSchema(
+          {
+            id: product.id,
+            name: product.name[currentLang],
+            description: product.description[currentLang],
+            image: product.image,
+            price: (product as any).rawPrice || 0, // Sử dụng giá trị số
+          },
+          currentLang,
+        )}
+      />
       <div className="max-w-7xl mx-auto px-6">
         <Link
           to={`/${currentLang}/products`}
