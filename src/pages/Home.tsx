@@ -232,7 +232,7 @@ export function Home() {
                 Kiểm Định Nghiêm Ngặt
               </h3>
               <p className="text-slate-500 font-light">
-                Đạt tiêu chuẩn ISO và HACCP, đảm bảo an toàn vệ sinh thực phẩm.
+                Đạt tiêu chuẩn an toàn vệ sinh thực phẩm.
               </p>
             </div>
             <div className="text-center">
