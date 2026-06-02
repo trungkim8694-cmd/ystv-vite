@@ -1,15 +1,20 @@
+"use client";
+
 import { useState, useEffect } from "react";
+import "@/src/i18n/config"; // Initialize i18n on the client side
 import { useTranslation } from "react-i18next";
-import { Link, useLocation, useNavigate } from "react-router-dom";
-import { Menu, X, Globe } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+import { usePathname, useRouter } from "next/navigation";
+import { Menu, X } from "lucide-react";
 import { cn } from "@/src/lib/utils";
 
 export function Header() {
   const { t, i18n } = useTranslation();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const location = useLocation();
-  const navigate = useNavigate();
+  const pathname = usePathname();
+  const router = useRouter();
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
@@ -19,8 +24,10 @@ export function Header() {
 
   const changeLanguage = (lng: string) => {
     i18n.changeLanguage(lng);
-    const path = location.pathname.split("/").slice(2).join("/");
-    navigate(`/${lng}/${path}`);
+    const segments = pathname.split("/");
+    segments[1] = lng;
+    const newPath = segments.join("/");
+    router.push(newPath);
   };
 
   const navItems = [
@@ -37,11 +44,11 @@ export function Header() {
     const fullPath = `/${currentLang}${path === "/" ? "" : path}`;
     if (path === "/") {
       return (
-        location.pathname === `/${currentLang}` ||
-        location.pathname === `/${currentLang}/`
+        pathname === `/${currentLang}` ||
+        pathname === `/${currentLang}/`
       );
     }
-    return location.pathname.startsWith(fullPath);
+    return pathname.startsWith(fullPath);
   };
 
   return (
@@ -54,18 +61,20 @@ export function Header() {
       )}
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between">
-        <Link to={`/${currentLang}`} className="flex items-center gap-2">
+        <Link href={`/${currentLang}`} className="flex items-center gap-2">
           <div className="w-12 h-12 relative flex items-center justify-center">
-            <img
+            <Image
               src="/logo-yen-sao-thinh-vuong.png"
               alt="Logo Yến Sào Thịnh Vượng"
-              className="w-full h-full object-contain"
+              width={48}
+              height={48}
+              className="object-contain"
             />
           </div>
           <span
             className={cn(
               "font-serif text-xl font-bold tracking-tight",
-              isScrolled ? "text-maroon" : "text-maroon",
+              "text-maroon",
             )}
           >
             YẾN SÀO <span className="gold-text">THỊNH VƯỢNG</span>
@@ -77,7 +86,7 @@ export function Header() {
           {navItems.map((item) => (
             <Link
               key={item.path}
-              to={`/${currentLang}${item.path === "/" ? "" : item.path}`}
+              href={`/${currentLang}${item.path === "/" ? "" : item.path}`}
               className={cn(
                 "text-sm font-medium uppercase tracking-widest transition-colors hover:text-gold",
                 isActive(item.path) ? "text-gold" : "text-slate-600",
@@ -149,7 +158,7 @@ export function Header() {
           {navItems.map((item) => (
             <Link
               key={item.path}
-              to={`/${currentLang}${item.path === "/" ? "" : item.path}`}
+              href={`/${currentLang}${item.path === "/" ? "" : item.path}`}
               onClick={() => setIsMenuOpen(false)}
               className={cn(
                 "text-lg font-serif border-b border-slate-50 pb-2 transition-colors",

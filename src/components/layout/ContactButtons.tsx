@@ -1,5 +1,7 @@
+"use client";
+
 import { useTranslation } from 'react-i18next';
-import { MessageCircle, PhoneCall } from 'lucide-react';
+import { MessageCircle } from 'lucide-react';
 
 export function ContactButtons() {
   const { i18n, t } = useTranslation();
